@@ -6,6 +6,7 @@
     <title>{$titulo|default:"Telematica MVC"}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style>
         body { background-color: #f8f9fa; }
         .sidebar { min-height: 100vh; background-color: #2c3e50; color: #fff; width: 250px; position: fixed; left: 0; top: 0; }
@@ -25,6 +26,8 @@
         </div>
         <a href="index.php?c=dashboard" class="active"><i class="fa fa-home me-2"></i> Dashboard</a>
         
+        <a href="index.php?c=tpd"><i class="fa fa-hand-holding-box me-2"></i> TPDs</a>
+
         {if isset($user_logged.nivel) && $user_logged.nivel == 'admin'}
             <a href="index.php?c=usuario"><i class="fa fa-users me-2"></i> Usuários</a>
         {/if}
