@@ -27,13 +27,13 @@
         <a href="index.php?c=dashboard" class="active"><i class="fa fa-home me-2"></i> Dashboard</a>
         
         <div class="px-3 py-2 small text-uppercase text-muted fw-bold">Patrimônio</div>
-        <a href="index.php?c=ativo&t=tpd"><i class="fa fa-tablet-alt me-2"></i> TPDs</a>
-        <a href="index.php?c=ativo&t=radio-movel"><i class="fa fa-broadcast-tower me-2"></i> Rádios Móveis</a>
-        <a href="index.php?c=ativo&t=radio-portatil"><i class="fa fa-walkie-talkie me-2"></i> Rádios Portáteis</a>
-        <a href="index.php?c=ativo&t=celular"><i class="fa fa-mobile-alt me-2"></i> Celulares</a>
-        <a href="index.php?c=ativo&t=computador"><i class="fa fa-desktop me-2"></i> Computadores</a>
-        <a href="index.php?c=ativo&t=notebook"><i class="fa fa-laptop me-2"></i> Notebooks</a>
-        <a href="index.php?c=ativo&t=impressora"><i class="fa fa-print me-2"></i> Impressoras</a>
+        <a href="index.php?c=tpd"><i class="fa fa-tablet-alt me-2"></i> TPDs</a>
+        <a href="index.php?c=radioMovel"><i class="fa fa-broadcast-tower me-2"></i> Rádios Móveis</a>
+        <a href="index.php?c=radioPortatil"><i class="fa fa-walkie-talkie me-2"></i> Rádios Portáteis</a>
+        <a href="index.php?c=celular"><i class="fa fa-mobile-alt me-2"></i> Celulares</a>
+        <a href="index.php?c=computador"><i class="fa fa-desktop me-2"></i> Computadores</a>
+        <a href="index.php?c=notebook"><i class="fa fa-laptop me-2"></i> Notebooks</a>
+        <a href="index.php?c=impressora"><i class="fa fa-print me-2"></i> Impressoras</a>
 
         <div class="px-3 py-2 small text-uppercase text-muted fw-bold">Sistema</div>
         {if isset($user_logged.nivel) && $user_logged.nivel == 'admin'}
