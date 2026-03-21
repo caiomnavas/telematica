@@ -16,7 +16,7 @@ abstract class PatrimonioController extends Controller {
     }
 
     public function index() {
-        $ativos = $this->model::all();
+        $ativos = $this->model::with('observacoes.usuario')->get();
         $this->view("dashboard/patrimonio/index", [
             'titulo'    => 'Gerenciar ' . $this->titulo_singular . 's',
             'ativos'    => $ativos,
