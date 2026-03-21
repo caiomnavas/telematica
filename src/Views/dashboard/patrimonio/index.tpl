@@ -85,6 +85,7 @@
         </div>
     </div>
 
+    {literal}
     <script>
         $(document).ready(function() {
             $('.btn-obs').on('click', function() {
@@ -116,4 +117,5 @@
             });
         });
     </script>
+    {/literal}
 {/block}
