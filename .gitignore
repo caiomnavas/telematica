@@ -1,0 +1,22 @@
+# PHP/Composer
+vendor/
+composer.lock
+
+# Smarty
+templates_c/
+
+# Configurações sensíveis
+.env
+
+# Scripts de instalação/correção (Segurança)
+install.php
+migrate.php
+fix_user.php
+
+# IDEs
+.idea/
+.vscode/
+
+# Logs e Temporários
+*.log
+tmp/
