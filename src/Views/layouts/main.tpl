@@ -35,7 +35,7 @@
         <a href="index.php?c=notebook"><i class="fa fa-laptop me-2"></i> Notebooks</a>
         <a href="index.php?c=impressora"><i class="fa fa-print me-2"></i> Impressoras</a>
 
-        <div class="px-3 py-2 small text-uppercase text-muted fw-bold">Sistema</div>
+        <div class="px-3 py-2 small text-uppercase fw-bold">Sistema</div>
         {if isset($user_logged.nivel) && $user_logged.nivel == 'admin'}
             <a href="index.php?c=usuario"><i class="fa fa-users me-2"></i> Usuários</a>
         {/if}
