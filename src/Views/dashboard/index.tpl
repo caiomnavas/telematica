@@ -12,7 +12,7 @@
     <div class="row">
         {foreach from=$resumos key=tipo item=lista}
             <div class="col-md-6 mb-4">
-                <div class="card shadow-sm h-100">
+                <div class="card shadow-sm h-100 border-0">
                     <div class="card-header bg-white py-3 border-0 d-flex align-items-center">
                         <i class="fa {if $tipo == 'TPDs'}fa-tablet-alt{elseif $tipo == 'Celulares'}fa-mobile-alt{elseif $tipo == 'Notebooks'}fa-laptop{elseif $tipo == 'Impressoras'}fa-print{elseif $tipo == 'Computadores'}fa-desktop{else}fa-broadcast-tower{/if} text-primary me-2"></i>
                         <h5 class="mb-0 fw-bold">{$tipo}</h5>
@@ -25,6 +25,7 @@
                                         <th class="ps-3">OPM</th>
                                         <th class="text-center">Operando</th>
                                         <th class="text-center">Baixados</th>
+                                        <th class="text-center">Descarregados</th>
                                         <th class="text-center pe-3">Total</th>
                                     </tr>
                                 </thead>
@@ -33,16 +34,19 @@
                                         <tr>
                                             <td class="ps-3 fw-medium text-secondary">{$res->opm}</td>
                                             <td class="text-center">
-                                                <span class="badge bg-success-subtle text-success border border-success px-3">{$res->operando}</span>
+                                                <span class="badge bg-success-subtle text-success border border-success px-3">{$res->operando|default:0}</span>
                                             </td>
                                             <td class="text-center">
-                                                <span class="badge bg-warning-subtle text-warning border border-warning px-3">{$res->baixado}</span>
+                                                <span class="badge bg-warning-subtle text-warning border border-warning px-3">{$res->baixado|default:0}</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="badge bg-danger-subtle text-danger border border-danger px-3">{$res->descarregado|default:0}</span>
                                             </td>
                                             <td class="text-center pe-3 fw-bold">{$res->total}</td>
                                         </tr>
                                     {foreachelse}
                                         <tr>
-                                            <td colspan="4" class="text-center py-4 text-muted small">Nenhum ativo deste tipo registrado.</td>
+                                            <td colspan="5" class="text-center py-4 text-muted small">Nenhum ativo deste tipo registrado.</td>
                                         </tr>
                                     {/foreach}
                                 </tbody>
@@ -60,5 +64,6 @@
     .card:hover { transform: translateY(-3px); }
     .bg-success-subtle { background-color: #e6ffed !important; }
     .bg-warning-subtle { background-color: #fff8eb !important; }
+    .bg-danger-subtle { background-color: #ffeef0 !important; }
 </style>
 {/block}

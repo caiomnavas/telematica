@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
-
 use App\Models\Tpd;
 use App\Models\RadioMovel;
 use App\Models\RadioPortatil;
@@ -23,6 +22,7 @@ class DashboardController extends Controller {
         return $modelClass::select('opm',
             Capsule::raw("SUM(CASE WHEN status = 'Operando' THEN 1 ELSE 0 END) as operando"),
             Capsule::raw("SUM(CASE WHEN status = 'Baixado' THEN 1 ELSE 0 END) as baixado"),
+            Capsule::raw("SUM(CASE WHEN status = 'Descarregado' THEN 1 ELSE 0 END) as descarregado"),
             Capsule::raw("COUNT(*) as total")
         )
         ->groupBy('opm')
