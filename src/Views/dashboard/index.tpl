@@ -1,41 +1,64 @@
 {extends file="layouts/main.tpl"}
 
 {block name=content}
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card shadow-sm border-0">
-                <div class="card-body p-5 text-center">
-                    <h1 class="display-4">Bem-vindo, {$user_logged.nome}!</h1>
-                    <p class="lead text-muted">Este é o seu novo painel administrativo construído com PHP MVC, Eloquent e Smarty.</p>
-                    <hr class="my-4">
-                    <p>Você está logado como: <strong>{$user_logged.email}</strong></p>
-                    <div class="mt-4">
-                        <a href="#" class="btn btn-primary btn-lg px-4"><i class="fa fa-plus me-2"></i> Novo Registro</a>
-                        <a href="#" class="btn btn-outline-secondary btn-lg px-4"><i class="fa fa-list me-2"></i> Listar Dados</a>
-                    </div>
-                </div>
-            </div>
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h2 class="display-6"><i class="fa fa-chart-line text-primary me-2"></i> Resumo de Ativos por OPM</h2>
+            <p class="text-muted">Abaixo estão os totais de ativos distribuídos por Unidade (OPM).</p>
         </div>
     </div>
 
-    <div class="row mt-4">
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm bg-primary text-white text-center p-3">
-                <h3>150</h3>
-                <span>Usuários Ativos</span>
+    <div class="row">
+        {foreach from=$resumos key=tipo item=lista}
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white py-3 border-0 d-flex align-items-center">
+                        <i class="fa {if $tipo == 'TPDs'}fa-tablet-alt{elseif $tipo == 'Celulares'}fa-mobile-alt{elseif $tipo == 'Notebooks'}fa-laptop{elseif $tipo == 'Impressoras'}fa-print{elseif $tipo == 'Computadores'}fa-desktop{else}fa-broadcast-tower{/if} text-primary me-2"></i>
+                        <h5 class="mb-0 fw-bold">{$tipo}</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0 align-middle">
+                                <thead class="bg-light small text-uppercase">
+                                    <tr>
+                                        <th class="ps-3">OPM</th>
+                                        <th class="text-center">Operando</th>
+                                        <th class="text-center">Baixados</th>
+                                        <th class="text-center pe-3">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {foreach from=$lista item=res}
+                                        <tr>
+                                            <td class="ps-3 fw-medium text-secondary">{$res->opm}</td>
+                                            <td class="text-center">
+                                                <span class="badge bg-success-subtle text-success border border-success px-3">{$res->operando}</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="badge bg-warning-subtle text-warning border border-warning px-3">{$res->baixado}</span>
+                                            </td>
+                                            <td class="text-center pe-3 fw-bold">{$res->total}</td>
+                                        </tr>
+                                    {foreachelse}
+                                        <tr>
+                                            <td colspan="4" class="text-center py-4 text-muted small">Nenhum ativo deste tipo registrado.</td>
+                                        </tr>
+                                    {/foreach}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm bg-success text-white text-center p-3">
-                <h3>85</h3>
-                <span>Novas Vendas</span>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm bg-warning text-white text-center p-3">
-                <h3>12</h3>
-                <span>Alertas</span>
-            </div>
-        </div>
+        {/foreach}
     </div>
+</div>
+
+<style>
+    .card { transition: transform 0.2s ease; }
+    .card:hover { transform: translateY(-3px); }
+    .bg-success-subtle { background-color: #e6ffed !important; }
+    .bg-warning-subtle { background-color: #fff8eb !important; }
+</style>
 {/block}

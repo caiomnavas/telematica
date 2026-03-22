@@ -6,7 +6,14 @@
             <div class="card shadow-sm border-0">
                 <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
                     <h5 class="mb-0"><i class="fa fa-boxes me-2 text-primary"></i> {$titulo}</h5>
-                    <a href="index.php?c={$controller}&a=novo" class="btn btn-sm btn-primary"><i class="fa fa-plus me-2"></i> Novo Registro</a>
+                    <div>
+                        <a href="index.php?c={$controller}&a=reconciliar" class="btn btn-sm btn-outline-success me-2">
+                            <i class="fa fa-sync me-2"></i> Reconciliar
+                        </a>
+                        <a href="index.php?c={$controller}&a=novo" class="btn btn-sm btn-primary">
+                            <i class="fa fa-plus me-2"></i> Novo Registro
+                        </a>
+                    </div>
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive">
