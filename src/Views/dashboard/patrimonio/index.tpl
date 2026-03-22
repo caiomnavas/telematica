@@ -23,6 +23,7 @@
                                     <th class="ps-4">Patrimônio</th>
                                     <th>Série</th>
                                     <th>OPM</th>
+                                    <th>Descrição</th>
                                     <th>Status</th>
                                     <th>Localização</th>
                                     <th>Valor</th>
@@ -35,6 +36,7 @@
                                         <td class="ps-4"><strong>{$a->patrimonio}</strong></td>
                                         <td>{$a->num_serie}</td>
                                         <td>{$a->opm}</td>
+                                        <td><small class="text-muted text-truncate d-inline-block" style="max-width: 150px;">{$a->descricao}</small></td>
                                         <td>
                                             <span class="badge {if $a->status == 'Operando'}bg-success{elseif $a->status == 'Baixado'}bg-warning{else}bg-danger{/if}">
                                                 {$a->status}
@@ -61,7 +63,7 @@
                                     </tr>
                                 {foreachelse}
                                     <tr>
-                                        <td colspan="7" class="text-center py-4 text-muted">Nenhum registro encontrado.</td>
+                                        <td colspan="8" class="text-center py-4 text-muted">Nenhum registro encontrado.</td>
                                     </tr>
                                 {/foreach}
                             </tbody>
